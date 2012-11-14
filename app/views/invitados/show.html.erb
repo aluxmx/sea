@@ -1,0 +1,38 @@
+<p>
+  <b>Folio:</b>
+  <%=h @invitado.folio %>
+</p>
+
+<p>
+  <b>Paterno:</b>
+  <%=h @invitado.paterno %>
+</p>
+
+<p>
+  <b>Materno:</b>
+  <%=h @invitado.materno %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%=h @invitado.nombre %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @invitado.telefono %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%=h @invitado.direccion %>
+</p>
+
+<p>
+  <b>Zona:</b>
+  <%=h @invitado.zona_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_invitado_path(@invitado) %> |
+<%= link_to 'Back', invitados_path %>

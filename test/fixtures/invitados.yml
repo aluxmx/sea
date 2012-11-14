@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  folio: 1
+  paterno: MyString
+  materno: MyString
+  nombre: MyString
+  telefono: MyString
+  direccion: MyString
+  zona_id: 1
+
+two:
+  folio: 1
+  paterno: MyString
+  materno: MyString
+  nombre: MyString
+  telefono: MyString
+  direccion: MyString
+  zona_id: 1

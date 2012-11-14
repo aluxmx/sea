@@ -1,0 +1,40 @@
+<h1>Editing invitado</h1>
+
+<% form_for(@invitado) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :folio %><br />
+    <%= f.text_field :folio %>
+  </p>
+  <p>
+    <%= f.label :paterno %><br />
+    <%= f.text_field :paterno %>
+  </p>
+  <p>
+    <%= f.label :materno %><br />
+    <%= f.text_field :materno %>
+  </p>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono %>
+  </p>
+  <p>
+    <%= f.label :direccion %><br />
+    <%= f.text_field :direccion %>
+  </p>
+  <p>
+    <%= f.label :zona_id %><br />
+    <%= f.text_field :zona_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @invitado %> |
+<%= link_to 'Back', invitados_path %>

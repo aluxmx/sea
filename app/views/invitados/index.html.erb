@@ -1,0 +1,65 @@
+<form id="datos">
+<table cellpadding="5" cellspacing="1">
+ <tr class="subtitulo">
+    <th colspan="5"><font size="5" color="navy" face="Verdana">NOMBRE&nbsp;&nbsp;</font>
+        <%=text_field_tag :dato_invitado,  :class => "form-login" %>
+    </th>
+  </tr>
+</table>
+</form>
+
+
+<img alt="spinner" id="spinner" src="/images/loading_spinner.gif" style="display:none;" />
+<!--
+<= observe_form( 'datos',
+                  :update => :contenido,
+                  :url => { :action => :busqueda_invitado})%>
+-->
+
+<%= observe_field :dato_invitado,
+        :frequency => 0.02,
+        :loading => "Element.show('spinner')",
+        :complete => "Element.hide('spinner')",
+        :url => {:controller => 'monitoreo',
+        :action => 'busqueda_invitado'},
+        :update => 'contenido',
+        :with => :dato_invitado %>
+
+
+<div id="contenido">
+<h1>Invitados</h1>
+
+<table>
+  <tr>
+    <th>Folio</th>
+    <th>Paterno</th>
+    <th>Materno</th>
+    <th>Nombre</th>
+    <th>Teléfono</th>
+    <th>Dirección</th>
+    <th>Zona</th>
+  </tr>
+
+<% @invitados.each do |invitado| %>
+  <tr>
+    <td><%=h invitado.folio %></td>
+    <td><%=h invitado.paterno %></td>
+    <td><%=h invitado.materno %></td>
+    <td><%=h invitado.nombre %></td>
+    <td><%=h invitado.telefono %></td>
+    <td><%=h invitado.direccion %></td>
+    <td><%=h invitado.zona_id %></td>
+    <td><%= button_to 'Detalle', invitado %></td>
+    <td><%= button_to 'Asistencia', invitado %></td>
+    <td><%= button_to 'Editar', edit_invitado_path(invitado) %></td>
+    <td><%= button_to 'Eliminar', invitado, :confirm => '¿Esta seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo invitado', new_invitado_path %>
+</div>
+
+
