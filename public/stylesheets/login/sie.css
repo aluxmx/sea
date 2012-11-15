@@ -6,7 +6,7 @@ html, body { margin:0 auto 0 auto; background-color:#A8CBF3; }
 
 /* ========== ========== ========== >>> Login */
 
-#IdLogin { margin:0 auto 0 auto; width:1024px; height:650px; background:url(/images/backlogin.jpg) no-repeat; }
+#IdLogin { margin:0 auto 0 auto; width:1024px; height:650px; background:url(/images/_backlogin.jpg) no-repeat; }
 #IdControles { position:absolute; width:310px; height:150px; top:280px; left:800px; }
 .loginInicio { float:left; width:130px; height:29px; background:url(/images/inicio.png) no-repeat right; }
 .loginUsuario { float:left; width:130px; height:29px; background:url(/images/usuario.png) no-repeat right; }
@@ -15,5 +15,4 @@ html, body { margin:0 auto 0 auto; background-color:#A8CBF3; }
 .loginIUsuario { float:left; width:168px; height:29px; margin-left:10px; }
 .loginIContrasenia { float:left; width:168px; height:29px; margin-top:2px; margin-left:10px; }
 .loginInput { width:120px; height:18px; margin-top:4px; padding-left:10px; background-color:#A8CBF3; color:#133B78; border:hidden; }
-
-/* ========== ========== ========== >>> Menu */
+.loginButton { float:left; width:298px; height:29px; text-align:right; }
