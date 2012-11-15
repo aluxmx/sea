@@ -81,8 +81,34 @@ class InvitadosController < ApplicationController
     end
   end
 
-  def busqueda_invitados
-    render :text => "busqueda"
+  def busqueda_invitado
+   if params[:dato_invitado]
+      @dato_invitado = params[:dato_invitado].strip
+      if @dato_invitado.size > 3
+         @dato_invitado.upcase!
+         @elementos = @dato_invitado.split(" ")
+         #--- Busqueda de nombre
+         @invitados ||= Invitado.find(:all, :conditions => ["nombre like ?", "#{@elementos[0]}%"]) if (@elementos.size == 1)
+         @invitados ||= Invitado.find(:all, :conditions => ["paterno like ?", "#{@elementos[0]}%"]) if (@elementos.size == 1)
+         #@invitados ||= Invitado.find(:all, :conditions => ["nombre like ?", "#{@elementos[0]}%"]) if (@elementos.size == 1)
+         @invitados ||= Invitado.find(:all, :conditions => ["nombre like ?", "#{@elementos[0]}%"]) if @elementos[0]
+         @invitados ||= Invitado.find(:all, :conditions => ["paterno like ?", "#{@elementos[0]}%"]) if @elementos[0]
+         @invitados ||= Invitado.find(:all, :conditions => ["materno like ?", "#{@elementos[0]}%"]) if @elementos[0]
+         #---- Buscamos apellidos ---
+         @invitados ||= Invitado.find(:all, :conditions => ["paterno like ?", "#{@elementos[1]}%"]) if @elementos[1]
+         @invitados ||= Invitado.find(:all, :conditions => ["materno like ?", "#{@elementos[1]}%"]) if @elementos[1]
+         if @invitados
+          return render(:partial => 'resultados', :layout => false) if request.xhr?
+         else
+           return render(:partial => 'no_encontrados', :layout => false) if request.xhr?
+         end
+       else
+        return render(:partial => 'no_encontrados', :layout => false) if request.xhr?
+      end
+    end
   end
+
+
+
 
 end
