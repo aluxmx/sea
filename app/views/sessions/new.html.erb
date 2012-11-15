@@ -1,0 +1,16 @@
+<div id="IdControles"> <!-- Codigo para login (User y Pass de 15 caracteres) -->
+     <% form_tag session_path do -%>
+              <div class="loginInicio"></div>
+              <div class="loginIInicio"></div>
+              <div class="loginUsuario"></div><div class="loginIUsuario">
+                  <%= text_field_tag 'login', @login, :class => "loginInput"%>
+              </div>
+              <div class="loginContrasenia"></div>
+              <div class="loginIContrasenia">
+                  <%= password_field_tag 'password', nil, :class => "loginInput" %>
+              </div>
+              <div>
+                <%= submit_tag 'Ingresar' %>
+              </div>
+     <% end -%>
+</div>  <!-- Fin Codigo -->
