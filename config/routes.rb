@@ -15,8 +15,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
-  #map.resources :invitados
-  map.resources :invitados, :collection => { :busqueda_invitados => :get , :latest => :get }
+  map.resources :invitados, :collection => { :busqueda_invitados => :get , :update_estado => :get, :update_invitados => :get }
 
 
   # The priority is based upon order of creation: first created -> highest priority.
