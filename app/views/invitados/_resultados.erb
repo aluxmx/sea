@@ -1,0 +1,25 @@
+<table>
+  <tr class="tablaTitulo">
+       <th width="22px">Zona</th>
+       <th width="300px">Nombre</th>
+       <th width="120px">Estatus</th>
+       <th width="115px"></th>
+     </tr>
+
+   <% @invitados.each do |invitado| %>
+   <tr>
+      <%=background(invitado)%>
+      <th width="300px"><%= link_to "#{invitado.nombre}", invitado, :method => :get %></th>
+      <th width="120px"><%=h (invitado.ultimo_estado) ? invitado.ultimo_estado.estado.descripcion : "---" %></th>
+      <!-- next status -->
+      <%siguiente_estado = (invitado.siguiente_estado) ? invitado.siguiente_estado : nil%>
+      <%if siguiente_estado%>
+        <th width="115px"><%= button_to "#{siguiente_estado.descripcion}", :action => "change_estado", :id => invitado%></th>
+      <%end%>
+      <!-- end next status -->
+   </tr>
+   <%end%>
+</table>
+
+<br />
+
