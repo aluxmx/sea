@@ -9,9 +9,9 @@
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-
-<p style="color: green"><%= notice %></p>
-
+<%if notice%>
+  <p style="color: green"><%= notice %></p>
+<%end%>
 <%= yield %>
 
 </body>
