@@ -3,20 +3,18 @@
   <%=h @invitado.folio %>
 </p>
 
-<p>
-  <b>Paterno:</b>
-  <%=h @invitado.paterno %>
-</p>
-
-<p>
-  <b>Materno:</b>
-  <%=h @invitado.materno %>
-</p>
 
 <p>
   <b>Nombre:</b>
   <%=h @invitado.nombre %>
 </p>
+
+
+<p>
+  <b>Cargo:</b>
+  <%=h @invitado.cargo %>
+</p>
+
 
 <p>
   <b>Telefono:</b>
@@ -32,6 +30,29 @@
   <b>Zona:</b>
   <%=h @invitado.zona_id %>
 </p>
+
+
+<%if @bitacora.size > 0%>
+<p>Histórico</p>
+
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Fecha/hora</th>
+  </tr>
+
+  <%@bitacora.each do |bitacora|%>
+  <tr>
+    <td><%=h bitacora.estado.descripcion%></td>
+    <td><%=h bitacora.updated_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
+  </tr>
+ <%end%>
+</table>
+
+<%end%>
+
+
 
 
 <%= link_to 'Edit', edit_invitado_path(@invitado) %> |
