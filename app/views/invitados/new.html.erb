@@ -1,4 +1,4 @@
-<h1>New invitado</h1>
+<h1>Registro de Invitados</h1>
 
 <% form_for(@invitado) do |f| %>
   <%= f.error_messages %>
@@ -7,18 +7,17 @@
     <%= f.label :folio %><br />
     <%= f.text_field :folio %>
   </p>
-  <p>
-    <%= f.label :paterno %><br />
-    <%= f.text_field :paterno %>
-  </p>
-  <p>
-    <%= f.label :materno %><br />
-    <%= f.text_field :materno %>
-  </p>
+
   <p>
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre %>
   </p>
+
+  <p>
+    <%= f.label :cargo %><br />
+    <%= f.text_field :cargo %>
+  </p>
+
   <p>
     <%= f.label :telefono %><br />
     <%= f.text_field :telefono %>
@@ -29,7 +28,7 @@
   </p>
   <p>
     <%= f.label :zona_id %><br />
-    <%= f.text_field :zona_id %>
+    <%= f.select(:zona_id, Zona.all.map{|zona|[zona.descripcion, zona.id]}, :prompt => "Seleccione una opción") %>
   </p>
   <p>
     <%= f.submit 'Create' %>
